@@ -1,0 +1,8 @@
+<app-team-select *ngIf="router.url=='/teams'"  
+(teamSelectedEvent)="doSelectAction($event)"></app-team-select> 
+
+<app-team-list  (teamRemovedEvent)="doRemoveAction($event)" 
+*ngIf="teams && router.url=='/teams'" [teams]="teams"></app-team-list>  
+
+  
+  

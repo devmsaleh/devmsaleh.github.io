@@ -1,0 +1,51 @@
+<div class="card" style="margin-top:10px;">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-9 col-md-11">
+            <h5 class="card-title">{{team.fullName}} [{{team.abbreviation}}]</h5>
+            <p class="card-text">{{team.conference == 'West' ? 'Western' : 'Eastern'}} conference</p>
+          </div>
+          <div class="col p-0">
+            <button type="button" 
+            class="btn-close" aria-label="Close"
+            id='{{"remove"+ team.abbreviation}}' 
+            (click)="removeTeam(team)"></button>
+         </div>
+        </div>
+      </div> 
+      
+      <hr />
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-7 col-md-9">
+              <div>Results for past 12 days:</div>
+              <div class="mt-4 mb-4">
+                  <span 
+                  class="rounded-circle text-light p-3 m-1 text-center"
+                  [ngClass]="gameResult.resultLabel == 'W' ? 'bg-success' : 'bg-danger'"    
+                  *ngFor="let gameResult of gameResults">
+                  {{gameResult.resultLabel}}
+                  </span>
+              </div>
+              <div>Avg pts scored:{{avgPointsScored}}</div>
+              <div>Avg pts conceded:{{avgPointsConceded}}</div>
+          </div>
+          <div class="col">
+            <img
+            src='{{"https://interstate21.com/nba-logos/"+ team.abbreviation+".png"}}'
+            class="img-fluid"
+            style="max-height: 300px;">
+          </div>
+        </div>
+      </div>
+
+     
+    <a href="#" id='{{"results"+ team.id}}'  
+    [routerLink]="['/results', team.id,team.fullName,team.abbreviation,team.conference]"
+    class="btn btn-success mt-4">See game results >></a>
+    </div>
+ </div>
+
+

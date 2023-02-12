@@ -1,0 +1,8 @@
+<div class="row"> 
+    <app-team-details
+      ngClass="col-xs-8 col-md-8 col-lg-6"
+      *ngFor="let team of teams;let i=index"
+      (teamRemovedEvent)="doRemoveAction($event)"
+      [team]="team">
+    </app-team-details>   
+</div>

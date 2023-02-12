@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">NBA Score Tracking APP</h5>
+    <select
+        id="teamInput"
+        [(ngModel)]="selectedTeam"> 
+        <option value="" disabled>Choose a Team</option>
+        <option *ngFor="let team of teams" [ngValue]="team">{{ team.fullName }}</option>
+      </select>
+    <button id="trackBtn" style="margin-left: 5px" type="button" class="btn btn-primary btn-sm" (click)="trackTeam()">Track team</button>
+  </div>
+</div>
